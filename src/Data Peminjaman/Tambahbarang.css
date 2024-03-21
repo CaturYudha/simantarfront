@@ -1,8 +1,8 @@
 /* styles.css */
 
 /* Container styling */
-.container {
-  max-width: 600px;
+.co-input {
+  max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
   border-radius: 8px;
@@ -41,17 +41,17 @@
 }
 
 /* Button styling */
-.btn {
+.butn {
   background-color: #4caf50;
   color: #ffffff;
   padding: 12px 24px;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   cursor: pointer;
   font-size: 16px;
   transition: background-color 0.3s ease;
 }
 
-.btn:hover {
+.butn:hover {
   background-color: #45a049;
 }

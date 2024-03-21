@@ -34,7 +34,7 @@ function Login() {
               </label>
               <a href="#">Forgot Password</a>
             </div>
-            <Link to="/Inputbarang">
+            <Link to="/dashboard">
   <button type="submit" className="btn">Login</button>
 </Link>
             <div className="register-link">

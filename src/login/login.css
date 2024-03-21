@@ -85,6 +85,18 @@
   color: #333;
   font-weight: 600;
 }
+.wrapper .btn:active {
+  color: #fff;
+  background-color: #436850; /* Warna hijau yang berbeda saat tombol sedang aktif (diklik) */
+} 
+
+.wrapper .btn:hover {
+  color: #fff;
+  background-color: #436850; /* Warna hijau yang berbeda saat dihover */
+}
+
+
+
 .wrapper .register-link {
   font-size: 14.5px;
   text-align: center;

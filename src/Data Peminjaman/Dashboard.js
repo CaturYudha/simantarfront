@@ -1,153 +1,146 @@
-import "./Data Peminjaman";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHome } from "@fortawesome/free-solid-svg-icons";
-import logo from "../assets/smk ijo.jpg";
-import "./Data Peminjaman.css";
+import React, { useState, useEffect} from 'react';
+// import "./Dashboard";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars, faTools, faBox, faExclamationTriangle, faUsers, faChartBar, faThLarge, faReceipt, faClipboardCheck, faClipboardQuestion, faCheckCircle, faClipboardList, faSearch} from '@fortawesome/free-solid-svg-icons'; // Import ikon yang diperlukan
+import avatar from "../assets/images.png";
+import "./Dashboard.css";
+import Slidebar from '../component/Slidebar';
 
 function Dasboard() {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
   return (
-    <container>
-      <div class="container">
-        <div class="navigation">
-          <ul>
-            <li>
-              <a href="#">
-                <span className="">
-                  <div className="logo1">
-                    <img src={logo} alt="Logo"/>
-                  </div>
-                </span>
-                <span className="title">Brand Name</span>
-              </a>
-            </li>
-
-            <li>
-              <a href="#">
-                <span class="icon">
-                  <FontAwesomeIcon icon={faHome} />
-                </span>
-                <span class="title">Dashboard</span>
-              </a>
-            </li>
-
-            <li>
-              <a href="#">
-                <span class="icon">
-                  <ion-icon name="people-outline"></ion-icon>
-                </span>
-                <span class="title">Customers</span>
-              </a>
-            </li>
-
-            <li>
-              <a href="#">
-                <span class="icon">
-                  <ion-icon name="chatbubble-outline"></ion-icon>
-                </span>
-                <span class="title">Messages</span>
-              </a>
-            </li>
-
-            <li>
-              <a href="#">
-                <span class="icon">
-                  <ion-icon name="help-outline"></ion-icon>
-                </span>
-                <span class="title">Help</span>
-              </a>
-            </li>
-
-            <li>
-              <a href="#">
-                <span class="icon">
-                  <ion-icon name="settings-outline"></ion-icon>
-                </span>
-                <span class="title">Settings</span>
-              </a>
-            </li>
-            
-            <li>
-              <a href="#">
-                <span class="icon">
-                  <ion-icon name="lock-closed-outline"></ion-icon>
-                </span>
-                <span class="title">Password</span>
-              </a>
-            </li>
-            
-            <li>
-              <a href="#">
-                <span class="icon">
-                  <ion-icon name="log-out-outline"></ion-icon>
-                </span>
-                <span class="title">Sign Out</span>
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div class="main">
+    <div>
+      <div className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
+        <Slidebar />
+      </div>
+      <div className={`main ${isSidebarOpen ? 'shifted' : ''}`}>
           <div class="topbar">
-            <div class="toggle">
-              <ion-icon name="menu-outline"></ion-icon>
+            <div class="toggle" onClick={toggleSidebar} >
+            <FontAwesomeIcon icon={faBars} /> 
+            
             </div>
-
+            
             <div class="search">
               <label>
                 <input type="text" placeholder="Search here" />
-                <ion-icon name="search-outline"></ion-icon>
+                <FontAwesomeIcon className="icon" icon={faSearch} /> 
               </label>
             </div>
 
             <div class="user">
-              <img src="assets/imgs/customer01.jpg" alt="" />
+              <img src={avatar} alt="" />
             </div>
           </div>
+          <div className="welcome">
+            <h3>Hallo Admin</h3> 
+            <p>Selamat Datang Kembali di SiMantar</p>
+          </div>
           <div class="cardBox">
-            <div class="card">
+          <div class="box">
+            <div>
+                <div class="numbers">32</div>
+                <div class="cardName">Total Pengguna</div>
+              </div>
+
+              <div class="iconBx">
+              <FontAwesomeIcon icon={faUsers} /> 
+              </div>
+            </div>
+
+            <div class="box">
+              <div>
+                <div class="numbers">5</div>
+                <div class="cardName">Total Program Keahlian</div>
+              </div>
+
+              <div class="iconBx">
+              <FontAwesomeIcon icon={faChartBar} /> 
+              </div>
+            </div>
+
+            <div class="box">
+              <div>
+                <div class="numbers">15</div>
+                <div class="cardName">Total Ruangan</div>
+              </div>
+
+              <div class="iconBx">
+              <FontAwesomeIcon icon={faThLarge} /> 
+              </div>
+            </div>
+
+            <div class="box">
               <div>
                 <div class="numbers">1,504</div>
                 <div class="cardName">Total Barang</div>
               </div>
 
               <div class="iconBx">
-                <ion-icon name="eye-outline"></ion-icon>
+              <FontAwesomeIcon icon={faBox} /> 
               </div>
             </div>
 
-            <div class="card">
+            <div class="box">
               <div>
                 <div class="numbers">80</div>
-                <div class="cardName">Kondisi baik</div>
+                <div class="cardName">Barang Kondisi baik</div>
               </div>
 
               <div class="iconBx">
-                <ion-icon name="cart-outline"></ion-icon>
+              <FontAwesomeIcon icon={faCheckCircle} /> 
               </div>
             </div>
 
-            <div class="card">
+            <div class="box">
               <div>
                 <div class="numbers">284</div>
-                <div class="cardName">Kondisi Rusak Ringan </div>
+                <div class="cardName">Barang Kondisi Rusak</div>
               </div>
 
               <div class="iconBx">
-                <ion-icon name="chatbubbles-outline"></ion-icon>
+              <FontAwesomeIcon icon={faExclamationTriangle} /> 
               </div>
             </div>
 
-            <div class="card">
+            <div class="box">
               <div>
-                <div class="numbers">7,842</div>
-                <div class="cardName">Kondisi Rusak Berat</div>
+                <div class="numbers">742</div>
+                <div class="cardName">Transaksi Peminjaman</div>
               </div>
 
               <div class="iconBx">
-                <ion-icon name="cash-outline"></ion-icon>
+              <FontAwesomeIcon icon={faClipboardList} /> 
+              </div>
+            </div>
+
+            <div class="box">
+              <div>
+                <div class="numbers">42</div>
+                <div class="cardName">Peminjaman Belum Dikembalikan</div>
+              </div>
+
+              <div class="iconBx">
+              <FontAwesomeIcon icon={faClipboardQuestion} /> 
+              </div>
+            </div>
+            
+            <div class="box">
+              <div>
+                <div class="numbers">842</div>
+                <div class="cardName">Peminjaman Dikembalikan</div>
+              </div>
+
+              <div class="iconBx">
+              <FontAwesomeIcon icon={faClipboardCheck} /> 
               </div>
             </div>
           </div>
-          <div class="details">
+          {/* <div class="details">
             <div class="recentOrders">
               <div class="cardHeader">
                 <h2>Recent Orders</h2>
@@ -361,10 +354,11 @@ function Dasboard() {
                 </tr>
               </table>
             </div>
-          </div>
+          </div> */}
         </div>
-      </div>
-    </container>
+        
+      
+    </div>
   );
 }
 export default Dasboard;

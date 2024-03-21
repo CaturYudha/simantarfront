@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
+
+/* Di dalam file global.css */
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
+
+/* Aturan CSS untuk menggunakan font Ubuntu pada komponen Bootstrap */
+.font-ubuntu {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+
+/* custom.css atau styles.css */
+body,
+.btn,
+.form-control,
+.table,
+.modal-title,
+.modal-body,
+.modal-footer,
+.navbar-brand,
+.nav-link {
+  font-family: 'Ubuntu', sans-serif !important;
+}
+
+.table-row-bg {
+  background-color: #3a0a0a; /* Ganti dengan warna yang diinginkan */
+}
+
+.table-column-bg {
+  background-color: #694b4b; /* Ganti dengan warna yang diinginkan */
+}
+
+
