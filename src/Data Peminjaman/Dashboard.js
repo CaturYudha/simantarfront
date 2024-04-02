@@ -5,13 +5,37 @@ import { faBars, faTools, faBox, faExclamationTriangle, faUsers, faChartBar, faT
 import avatar from "../assets/images.png";
 import "./Dashboard.css";
 import Slidebar from '../component/Slidebar';
+import axios from 'axios';
 
 function Dasboard() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [user, setUser] = useState({});
+  const [userRole, setUserRole] = useState("");
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
+
+  useEffect(() => {
+    const token = localStorage.getItem('token'); // Ambil token dari local storage
+    if(!token){
+      window.location.href = "/";
+    } else {
+      fetchData(); // Panggil fetchData jika token tersedia
+    }
+  },[]);
+
+  const fetchData = async () => {
+    try {
+      const token = localStorage.getItem('token');
+      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+      const response = await axios.post('http://localhost:8000/api/auth/me');
+      setUser(response.data);
+      setUserRole(response.data.role);
+    } catch (error) {
+      console.error("Error fetching user data:", error);
+    }
+  }
 
   return (
     <div>
@@ -37,8 +61,8 @@ function Dasboard() {
             </div>
           </div>
           <div className="welcome">
-            <h3>Hallo Admin</h3> 
-            <p>Selamat Datang Kembali di SiMantar</p>
+          <h3>Hallo {userRole}</h3> {/* Menampilkan peran pengguna */}
+          <p>Selamat Datang Kembali di SiMantar</p>
           </div>
           <div class="cardBox">
           <div class="box">

@@ -81,6 +81,7 @@ const Dataruangan = () => {
     };
 
     const closeModal = () => {
+        window.location.reload();
         setShow(false);
     };
 
@@ -102,6 +103,7 @@ const Dataruangan = () => {
     };
 
     const closeModalAdd = () => {
+        window.location.reload();
         setShowAdd(false);
     };
 
@@ -365,7 +367,7 @@ const Dataruangan = () => {
                                     <thead style={{ backgroundColor: '#436850', color: 'white' }}>
                                         <tr>
                                             <th>No</th>
-                                            <th>Kode Ruangan</th>
+                                            {/* <th>Kode Ruangan</th> */}
                                             <th>Nama Ruangan</th>
                                             <th>Deskripsi</th>
                                             <th>Jurusan</th>
@@ -376,7 +378,7 @@ const Dataruangan = () => {
                                         {ruangan.map((ruangan, index) => (
                                             <tr key={ruangan.id}>
                                                 <td>{index + 1}</td>
-                                                <td>{ruangan.kode_ruangan}</td>
+                                                {/* <td>{ruangan.kode_ruangan}</td> */}
                                                 <td>{ruangan.nama_ruangan}</td>
                                                 <td>{ruangan.deskripsi_ruangan}</td>
                                                 <td>{jurusans.find(j => j.id === ruangan.jurusan_id)?.nama_jurusan}</td>

@@ -68,6 +68,7 @@ const Datajurusan = () => {
     };
 
     const closeModal = () => {
+        window.location.reload();
         setShow(false);
     };
 
@@ -86,6 +87,7 @@ const Datajurusan = () => {
     };
 
     const closeModalAdd = () => {
+        window.location.reload();
         setShowAdd(false);
     };
 
@@ -316,8 +318,8 @@ const Datajurusan = () => {
                                     <thead style={{ backgroundColor: '#436850', color: 'white' }}>
                                         <tr>
                                             <th>No</th>
-                                            <th>ID Jurusan</th>
-                                            <th>Kode Jurusan</th>
+                                            {/* <th>ID Jurusan</th>
+                                            <th>Kode Jurusan</th> */}
                                             <th>Nama Jurusan</th>
                                             <th>Deskripsi</th>
                                             <th>Action</th>
@@ -327,8 +329,8 @@ const Datajurusan = () => {
                                         {jurusan.map((jurusan, index) => (
                                             <tr key={jurusan.id}>
                                                 <td>{index + 1}</td>
-                                                <td>{jurusan.id}</td>
-                                                <td>{jurusan.kode_jurusan}</td>
+                                                {/* <td>{jurusan.id}</td>
+                                                <td>{jurusan.kode_jurusan}</td> */}
                                                 <td>{jurusan.nama_jurusan}</td>
                                                 <td>{jurusan.deskripsi_jurusan}</td>
                                                 <td>

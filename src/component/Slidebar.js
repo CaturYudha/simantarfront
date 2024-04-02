@@ -1,10 +1,30 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import axios from 'axios';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome, faUsers, faChartBar, faThLarge, faBox, faClipboardList, faCogs, faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 import logo from "../assets/smk ijo.jpg";
 import "./sidebar.css"
 
 const Slidebar = () => {
+
+  const role = localStorage.getItem('role');
+  console.log(role)
+
+  useEffect(() => {
+  },[]);
+
+  const logoutHandler = async () => {
+    try {
+      const token = localStorage.getItem('token');
+      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+      const response = await axios.post('http://localhost:8000/api/auth/logout');
+      localStorage.removeItem('token',response.data.access_token);
+      window.location.href = "/";
+    } catch (error) {
+      console.error("Error fetching user data:", error);
+    }
+  }
+
   return (
     <div>
       <div class="navigation">
@@ -29,15 +49,18 @@ const Slidebar = () => {
               </a>
             </li>
 
+            {role === 'admin' && (
             <li>
               <a href="/datapengguna">
-                <span class="icon">
-                <FontAwesomeIcon icon={faUsers} />
+                <span className="icon">
+                  <FontAwesomeIcon icon={faUsers} />
                 </span>
-                <span class="title">Data Pengguna</span>
+                <span className="title">Data Pengguna</span>
               </a>
             </li>
+          )}
 
+          {role === 'admin' && (
             <li>
               <a href="/datajurusan">
                 <span class="icon">
@@ -46,7 +69,9 @@ const Slidebar = () => {
                 <span class="title">Data Program Keahlian</span>
               </a>
             </li>
+          )}
 
+          {role === 'admin' && (
             <li>
               <a href="/dataruangan">
                 <span class="icon">
@@ -55,6 +80,7 @@ const Slidebar = () => {
                 <span class="title">Data Ruangan</span>
               </a>
             </li>
+          )}
 
             <li>
               <a href="databarang">
@@ -75,7 +101,7 @@ const Slidebar = () => {
             </li>
 
             <li>
-              <a href="#">
+              <a href="laporan">
                 <span class="icon">
                 <FontAwesomeIcon icon={faClipboardList} />
                 </span>
@@ -84,7 +110,7 @@ const Slidebar = () => {
             </li>
 
             <li>
-              <a href="#">
+              <a href="pengaturan">
                 <span class="icon">
                 <FontAwesomeIcon icon={faCogs} />
                 </span>
@@ -93,7 +119,7 @@ const Slidebar = () => {
             </li>
             
             <li>
-              <a href="#">
+              <a href="#" onClick={logoutHandler}>
                 <span class="icon">
                 <FontAwesomeIcon icon={faSignOutAlt} />
                 </span>

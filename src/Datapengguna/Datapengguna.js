@@ -108,6 +108,7 @@ const Datapengguna = () => {
     };
 
     const closeModal = () => {
+        window.location.reload();
         setShow(false);
     };
 
@@ -130,6 +131,7 @@ const Datapengguna = () => {
     };
 
     const closeModalAdd = () => {
+        window.location.reload();
         setShowAdd(false);
     };
 
@@ -524,7 +526,7 @@ const Datapengguna = () => {
                                     <thead style={{ backgroundColor: '#436850', color: 'white' }}>
                                         <tr>
                                             <th>No</th>
-                                            <th>ID User</th>
+                                            {/* <th>ID User</th> */}
                                             <th>Username</th>
                                             {/* <th>Password</th> */}
                                             <th>Nama User</th>
@@ -538,7 +540,7 @@ const Datapengguna = () => {
                                         {users.map((user, index) => (
                                             <tr key={user.id}>
                                                 <td>{index + 1}</td>
-                                                <td>{user.id}</td>
+                                                {/* <td>{user.id}</td> */}
                                                 <td>{user.username}</td>
                                                 {/* <td>{user.password}</td> */}
                                                 <td>{user.nama_user}</td>
