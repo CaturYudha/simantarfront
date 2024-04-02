@@ -11,19 +11,23 @@ import DataPengguna from "./page/admin/datapengguna";
 import DataJurusan from "./page/admin/datajurusan";
 import DataRuangan from "./page/admin/dataruangan";
 import DataBarang from "./page/admin/databarang";
+import Pengaturan from "./page/admin/pengaturan";
+import Laporan from "./page/admin/laporan";
 
 function App() {
   return (
     <Router>
       <div>
         <Routes>
+          <Route path="/" element={<Login />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/datapengguna" element={<DataPengguna />} />
           <Route path="/datajurusan" element={<DataJurusan />} />
           <Route path="/dataruangan" element={<DataRuangan/>} />
           <Route path="/databarang" element={<DataBarang/>} />
           <Route path="/Inputbarang" element={<InputBarang />} />
-          <Route path="/" element={<Login />} />
+          <Route path="/laporan" element={<Laporan />} />
+          <Route path="/pengaturan" element={<Pengaturan />} />
         </Routes>
       </div>
     </Router>
