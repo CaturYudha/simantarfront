@@ -13,6 +13,7 @@ import DataRuangan from "./page/admin/dataruangan";
 import DataBarang from "./page/admin/databarang";
 import Pengaturan from "./page/admin/pengaturan";
 import Laporan from "./page/admin/laporan";
+import FormPeminjaman from "./peminjaman/peminjaman";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route path="/Inputbarang" element={<InputBarang />} />
           <Route path="/laporan" element={<Laporan />} />
           <Route path="/pengaturan" element={<Pengaturan />} />
+          <Route path="/peminjaman" element={<FormPeminjaman />} />
         </Routes>
       </div>
     </Router>
